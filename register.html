@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Registro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+</head>
+<body class=" bg-[#09090b] flex items-center justify-center min-h-screen">
+
+    <div class="bg-gray-800 p-8 rounded-lg shadow-md w-96">
+        <h2 class="text-2xl font-bold mb-6 text-center text-white">Registro</h2>
+        <form>
+            <div class="mb-4">
+                <label class="block text-sm font-medium mb-1 text-gray-300" for="name">Nome</label>
+                <input type="text" id="name" class="border border-gray-600 bg-gray-700 p-2 w-full rounded text-white" required>
+            </div>
+            <div class="mb-4">
+                <label class="block text-sm font-medium mb-1 text-gray-300" for="email">E-mail</label>
+                <input type="email" id="email" class="border border-gray-600 bg-gray-700 p-2 w-full rounded text-white" required>
+            </div>
+            <div class="mb-4">
+                <label class="block text-sm font-medium mb-1 text-gray-300" for="gender">Gênero</label>
+                <select id="gender" class="border border-gray-600 bg-gray-700 p-2 w-full rounded text-white">
+                    <option value="">Selecione...</option>
+                    <option value="masculino">Masculino</option>
+                    <option value="feminino">Feminino</option>
+                    <option value="outro">Outro</option>
+                </select>
+            </div>
+            <div class="mb-4">
+                <label class="block text-sm font-medium mb-1 text-gray-300" for="dob">Data de Nascimento</label>
+                <input type="date" id="dob" class="border border-gray-600 bg-gray-700 p-2 w-full rounded text-white" required>
+            </div>
+            <div class="mb-6">
+                <label class="block text-sm font-medium mb-1 text-gray-300" for="password">Senha</label>
+                <input type="password" id="password" class="border border-gray-600 bg-gray-700 p-2 w-full rounded text-white" required>
+            </div>
+            <a href="login.html" class="text-white border-b ">Já tem conta? Fazer login</a>
+            <button type="submit" class="bg-blue-600 text-white mt-1 p-2 w-full rounded hover:bg-blue-700">Registrar</button>
+        </form>
+    </div>
+
+</body>
+</html>

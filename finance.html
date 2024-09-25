@@ -25,23 +25,22 @@
     <div class="flex flex-col w-[1368px] m-5">
         <section>
             <div class="title">
-                <h1 class="text-3xl font-bold mb-2">Gerenciamento de Livros</h1>
-                <span>Adicione, Edite, Exclua. Livros dentro do sistema. </span>
+                <h1 class="text-3xl font-bold mb-2">Financeiro</h1>
+                <span>Gerencimemento de Financeiro </span>
                 <div class="my-5">
-                    <button class="bg-white text-black px-3 py-2 rounded" id="btn-open-modal-create-book">Adicionar Livro</button>
+                    <button class="bg-white text-black px-3 py-2 rounded" id="btn-open-modal-create-book">Nova entrada</button>
                 </div>
             </div>
 
             <main>
-                <table class="w-full text-sm text-left rtl:text-right  text-gray-400 rounded" id="table-book">
+                <table class="w-full text-sm text-left rtl:text-right  text-gray-400 rounded" id="table-finance">
                     <thead class="text-xs uppercase  bg-gray-700 text-gray-400 rounded">
                         <tr class="rounded">
                             <th scope="col" class="px-6 py-3">ID</th>
-                            <th scope="col" class="px-6 py-3">Titulo</th>
-                            <th scope="col" class="px-6 py-3">Autor</th>
                             <th scope="col" class="px-6 py-3">Categoria</th>
-                            <th scope="col" class="px-6 py-3">Preço</th>
-                            <th scope="col" class="px-6 py-3">Lançamento</th>
+                            <th scope="col" class="px-6 py-3">Forma de pagamento</th>
+                            <th scope="col" class="px-6 py-3">Status</th>
+                            <th scope="col" class="px-6 py-3">Valor</th>
                             <th scope="col" class="px-6 py-3">Ações</th>
                         </tr>
                     </thead>
@@ -59,61 +58,52 @@
             <div class="w-[500px]  bg-gray-800 p-5">
 
                 <div class="w-full flex justify-between text-white mb-5">
-                    <h1>Cadastrar Livro</h1>
+                    <h1>Editar entrada</h1>
                     <button id="btn-close-create-book">X</button>
                 </div>
                 <div>
                     <form class="w-full mx-auto text-white">
                         <div class="mb-5">
-                            <span class="block mb-2 text-sm font-medium  dark:text-white">Titulo do Livro</span>
+                            <span class="block mb-2 text-sm font-medium  dark:text-white">Categoria</span>
                             <input 
                                 required  
-                                id="title-book" 
+                                id="user-name" 
                                 type="text" 
-                                placeholder="Harry Potter" 
+                                placeholder="Usuario" 
                                 class="border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" 
                             />
                         </div>
                         <div class="mb-5">
-                            <span class="block mb-2 text-sm font-medium  dark:text-white">Autor</span>
+                            <span class="block mb-2 text-sm font-medium  dark:text-white">Forma de pagamento</span>
                             <input 
                                 required  
-                                id="author-book" 
+                                id="user-name" 
                                 type="text" 
-                                placeholder="Luana" 
-                                 class="border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" 
+                                placeholder="Usuario" 
+                                class="border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" 
                             />
                         </div>
                         <div class="mb-5">
-                            <span class="block mb-2 text-sm font-medium  dark:text-white">Categoria</span>
+                            <span class="block mb-2 text-sm font-medium  dark:text-white">Status</span>
                             <input 
                                 required  
-                                id="email" 
+                                id="user-name" 
                                 type="text" 
-                                placeholder="Suspense" 
-                                 class="border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" 
+                                placeholder="Usuario" 
+                                class="border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" 
                             />
                         </div>
                         <div class="mb-5">
-                            <span class="block mb-2 text-sm font-medium  dark:text-white">Preço</span>
+                            <span class="block mb-2 text-sm font-medium  dark:text-white">Valor</span>
                             <input 
                                 required  
-                                id="email" 
+                                id="user-email" 
                                 type="text" 
-                                placeholder="R$ 457,23" 
+                                placeholder="exemplo@gmail.com" 
                                  class="border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" 
                             />
                         </div>
-                        <div class="mb-5">
-                            <span class="block mb-2 text-sm font-medium  dark:text-white">Data de Lançamento</span>
-                            <input 
-                                required  
-                                id="date-book" 
-                                type="text" 
-                                placeholder="01/01/2000" 
-                                 class="border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" 
-                            />
-                        </div>
+                        
                         <button 
                             type="submit" 
                             class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
@@ -126,6 +116,6 @@
             </div>
         </div>
     </div>
-    <script src="asssets/script/livros.js"></script>
+    <script src="asssets/script/finance.js"></script>
 </body>
 </html>

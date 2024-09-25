@@ -25,23 +25,23 @@
     <div class="flex flex-col w-[1368px] m-5">
         <section>
             <div class="title">
-                <h1 class="text-3xl font-bold mb-2">Gerenciamento de Livros</h1>
-                <span>Adicione, Edite, Exclua. Livros dentro do sistema. </span>
+                <h1 class="text-3xl font-bold mb-2">Gerenciamento de usuarios</h1>
+                <span>Adicione, Edite, Exclua. Usuarios dentro do sistema. </span>
                 <div class="my-5">
-                    <button class="bg-white text-black px-3 py-2 rounded" id="btn-open-modal-create-book">Adicionar Livro</button>
+                    <button class="bg-white text-black px-3 py-2 rounded" id="btn-open-modal-create-book">Adicionar usuario</button>
                 </div>
             </div>
 
             <main>
-                <table class="w-full text-sm text-left rtl:text-right  text-gray-400 rounded" id="table-book">
+                <table class="w-full text-sm text-left rtl:text-right  text-gray-400 rounded" id="table-user">
                     <thead class="text-xs uppercase  bg-gray-700 text-gray-400 rounded">
                         <tr class="rounded">
                             <th scope="col" class="px-6 py-3">ID</th>
-                            <th scope="col" class="px-6 py-3">Titulo</th>
-                            <th scope="col" class="px-6 py-3">Autor</th>
-                            <th scope="col" class="px-6 py-3">Categoria</th>
-                            <th scope="col" class="px-6 py-3">Preço</th>
-                            <th scope="col" class="px-6 py-3">Lançamento</th>
+                            <th scope="col" class="px-6 py-3">Nome</th>
+                            <th scope="col" class="px-6 py-3">Email</th>
+                            <th scope="col" class="px-6 py-3">Genero</th>
+                            <th scope="col" class="px-6 py-3">Data de nascimento</th>
+                            <th scope="col" class="px-6 py-3">Senha</th>
                             <th scope="col" class="px-6 py-3">Ações</th>
                         </tr>
                     </thead>
@@ -59,58 +59,58 @@
             <div class="w-[500px]  bg-gray-800 p-5">
 
                 <div class="w-full flex justify-between text-white mb-5">
-                    <h1>Cadastrar Livro</h1>
+                    <h1>Cadastrar usuario</h1>
                     <button id="btn-close-create-book">X</button>
                 </div>
                 <div>
                     <form class="w-full mx-auto text-white">
                         <div class="mb-5">
-                            <span class="block mb-2 text-sm font-medium  dark:text-white">Titulo do Livro</span>
+                            <span class="block mb-2 text-sm font-medium  dark:text-white">Nome do usuario</span>
                             <input 
                                 required  
-                                id="title-book" 
+                                id="user-name" 
                                 type="text" 
-                                placeholder="Harry Potter" 
+                                placeholder="Usuario" 
                                 class="border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" 
                             />
                         </div>
                         <div class="mb-5">
-                            <span class="block mb-2 text-sm font-medium  dark:text-white">Autor</span>
+                            <span class="block mb-2 text-sm font-medium  dark:text-white">Email</span>
                             <input 
                                 required  
-                                id="author-book" 
+                                id="user-email" 
                                 type="text" 
-                                placeholder="Luana" 
+                                placeholder="exemplo@gmail.com" 
                                  class="border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" 
                             />
                         </div>
                         <div class="mb-5">
-                            <span class="block mb-2 text-sm font-medium  dark:text-white">Categoria</span>
+                            <span class="block mb-2 text-sm font-medium  dark:text-white">Genero</span>
                             <input 
                                 required  
-                                id="email" 
+                                id="user-gender" 
                                 type="text" 
-                                placeholder="Suspense" 
+                                placeholder="Masculino" 
                                  class="border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" 
                             />
                         </div>
                         <div class="mb-5">
-                            <span class="block mb-2 text-sm font-medium  dark:text-white">Preço</span>
+                            <span class="block mb-2 text-sm font-medium  dark:text-white">Data de nascimento</span>
                             <input 
                                 required  
-                                id="email" 
+                                id="user-birthday" 
                                 type="text" 
-                                placeholder="R$ 457,23" 
+                                placeholder="01/01/2001" 
                                  class="border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" 
                             />
                         </div>
                         <div class="mb-5">
-                            <span class="block mb-2 text-sm font-medium  dark:text-white">Data de Lançamento</span>
+                            <span class="block mb-2 text-sm font-medium  dark:text-white">Senha</span>
                             <input 
                                 required  
-                                id="date-book" 
+                                id="user-password" 
                                 type="text" 
-                                placeholder="01/01/2000" 
+                                placeholder="..." 
                                  class="border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" 
                             />
                         </div>
@@ -126,6 +126,6 @@
             </div>
         </div>
     </div>
-    <script src="asssets/script/livros.js"></script>
+    <script src="asssets/script/user.js"></script>
 </body>
 </html>
