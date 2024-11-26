@@ -9,7 +9,17 @@ btnOpenCreateBook.addEventListener('click', () => {
 })
 
 
+async function GetLivro(){
+    let url = '';
+    let response = await fetch(url)
+    let json = await response.json()
+
+    console.log(json)
+}
+
 window.onload = function() {
+
+    GetLivro()
     let tbody = document.querySelector('#table-book tbody')
 
     for(let i = 0; i < 9; i++){

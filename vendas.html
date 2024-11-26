@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="asssets/css/global.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+
+    <title>Document</title>
+</head>
+<body class="bg-[#09090b] text-white flex flex-col items-center overflow-x-hidden">
+    
+    <header class="w-full h-[70px] px-10  flex justify-between items-center border-b border-white/20">
+        <div class="">
+            book-flow
+        </div>
+        <div class="flex gap-5">
+            <a href="user.html">Usarios</a>
+            <a href="index.html">Livros</a>
+            <a href="finance.html">Financeiro</a>
+        </div>
+    </header>
+
+    <div class="flex flex-col w-[1368px] m-5">
+        <section>
+            <div class="title">
+                <h1 class="text-3xl font-bold mb-2">Vendas</h1>
+                <span>Afetuar uma nova venda </span>
+                <div class="my-5">
+                    <button class="bg-white text-black px-3 py-2 rounded" id="btn-open-modal-create-book">Adicionar Livro</button>
+                </div>
+            </div>
+
+            <main>
+                <form class="w-[500px] mx-auto text-white border border-gray-500/50 rounded p-5">
+                    <div class="mb-5">
+                        <span class="block mb-2 text-sm font-medium  dark:text-white">Produto</span>
+                        <select name="" id="" class="border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" >
+                            <option value="">Produto 1</option>
+                            <option value="">Produto 2</option>
+                            <option value="">Produto 3</option>
+                            <option value="">Produto 4</option>
+                            <option value="">Produto 5</option>
+                        </select>
+                    </div>
+                    <div class="mb-5">
+                        <span class="block mb-2 text-sm font-medium  dark:text-white">Forma de pagamento</span>
+                        <select name="" id="" class="border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" >
+                            <option value="">Credito</option>
+                            <option value="">Debito</option>
+                            <option value="">Pix</option>
+                        </select>
+                    </div>
+                    <div class="mb-5">
+                        <span class="block mb-2 text-sm font-medium  dark:text-white">Preço</span>
+                        <input 
+                            required  
+                            id="user-name" 
+                            type="text" 
+                            placeholder="Usuario" 
+                            class="border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" 
+                        />
+                    </div>
+                    <div class="mb-5">
+                        <span class="block mb-2 text-sm font-medium  dark:text-white">Valor</span>
+                        <input 
+                            required  
+                            id="user-email" 
+                            type="text" 
+                            placeholder="exemplo@gmail.com" 
+                             class="border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" 
+                        />
+                    </div>
+                    
+                    <div class="flex justify-between">
+                        <button 
+                            type="submit" 
+                            class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center "
+                        >
+                            Cancelar
+                        </button>
+                        <button 
+                            type="submit" 
+                            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center "
+                        >
+                            Efetuar venda
+                        </button>
+                    </div>
+          
+                </form>
+
+            </main>
+
+        </section>
+
+
+     
+                    
+            </div>
+        </div>
+    </div>
+    <script src="asssets/script/livros.js"></script>
+</body>
+</html>
