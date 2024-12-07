@@ -16,9 +16,11 @@
             book-flow
         </div>
         <div class="flex gap-5">
-            <a href="user.html">Usarios</a>
+            <a href="user.html">Usuarios</a>
             <a href="index.html">Livros</a>
             <a href="finance.html">Financeiro</a>
+            <a href="vendas.html">Vendas</a>
+            <a href="login.html">Sair</a>
         </div>
     </header>
 
@@ -27,48 +29,48 @@
             <div class="title">
                 <h1 class="text-3xl font-bold mb-2">Vendas</h1>
                 <span>Afetuar uma nova venda </span>
-                <div class="my-5">
-                    <button class="bg-white text-black px-3 py-2 rounded" id="btn-open-modal-create-book">Adicionar Livro</button>
-                </div>
+                
             </div>
 
             <main>
                 <form class="w-[500px] mx-auto text-white border border-gray-500/50 rounded p-5">
                     <div class="mb-5">
                         <span class="block mb-2 text-sm font-medium  dark:text-white">Produto</span>
-                        <select name="" id="" class="border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" >
-                            <option value="">Produto 1</option>
-                            <option value="">Produto 2</option>
-                            <option value="">Produto 3</option>
-                            <option value="">Produto 4</option>
-                            <option value="">Produto 5</option>
-                        </select>
+                        <input 
+                            required  
+                            id="product" 
+                            type="text" 
+                            placeholder="Produto 1" 
+                            class="border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" 
+                        />
                     </div>
                     <div class="mb-5">
                         <span class="block mb-2 text-sm font-medium  dark:text-white">Forma de pagamento</span>
-                        <select name="" id="" class="border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" >
-                            <option value="">Credito</option>
-                            <option value="">Debito</option>
-                            <option value="">Pix</option>
-                        </select>
+                        <input 
+                            required  
+                            id="payment-method" 
+                            type="text" 
+                            placeholder="forma de pagamento" 
+                            class="border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" 
+                        />
                     </div>
                     <div class="mb-5">
                         <span class="block mb-2 text-sm font-medium  dark:text-white">Preço</span>
                         <input 
                             required  
-                            id="user-name" 
+                            id="price" 
                             type="text" 
-                            placeholder="Usuario" 
+                            placeholder="400" 
                             class="border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" 
                         />
                     </div>
                     <div class="mb-5">
-                        <span class="block mb-2 text-sm font-medium  dark:text-white">Valor</span>
+                        <span class="block mb-2 text-sm font-medium  dark:text-white">Status</span>
                         <input 
                             required  
-                            id="user-email" 
+                            id="status" 
                             type="text" 
-                            placeholder="exemplo@gmail.com" 
+                            placeholder="Pago" 
                              class="border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" 
                         />
                     </div>
@@ -91,15 +93,29 @@
                 </form>
 
             </main>
+            <main>
+                <table class="w-full text-sm text-left rtl:text-right mt-5  text-gray-400 rounded" >
+                    <thead class="text-xs uppercase  bg-gray-700 text-gray-400 rounded">
+                        <tr class="rounded">
+                            <th scope="col" class="px-6 py-3">ID</th>
+                            <th scope="col" class="px-6 py-3">Produto</th>
+                            <th scope="col" class="px-6 py-3">Forma de pagamento</th>
+                            <th scope="col" class="px-6 py-3">Valor</th>
+                            <th scope="col" class="px-6 py-3">Status</th>
+                            <th scope="col" class="px-6 py-3">Ação</th>
+                        </tr>
+                    </thead>
+                    <tbody id="sales-table-body">
+                        
+                    </tbody>
+                </table>
 
         </section>
-
-
      
                     
             </div>
         </div>
     </div>
-    <script src="asssets/script/livros.js"></script>
+    <script src="asssets/script/vendas.js"></script>
 </body>
 </html>

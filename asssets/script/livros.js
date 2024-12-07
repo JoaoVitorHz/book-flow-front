@@ -1,75 +1,82 @@
-let btnCloseCreateBook = document.querySelector('#btn-close-create-book')
-let btnOpenCreateBook = document.querySelector('#btn-open-modal-create-book')
+document.getElementById('btn-open-modal-create-book').addEventListener('click', () => {
+    document.getElementById('div-create-book').classList.remove('hidden');
+});
 
-btnCloseCreateBook.addEventListener('click', () => {
-    document.querySelector('#div-create-book').setAttribute('style','display: none')
-})
-btnOpenCreateBook.addEventListener('click', () => {
-    document.querySelector('#div-create-book').setAttribute('style','display: flex')
-})
+document.getElementById('btn-close-create-book').addEventListener('click', () => {
+    document.getElementById('div-create-book').classList.add('hidden');
+});
 
+function saveBook(event) {
+    event.preventDefault();
 
-async function GetLivro(){
-    let url = '';
-    let response = await fetch(url)
-    let json = await response.json()
+    const title = document.getElementById('title-book').value;
+    const author = document.getElementById('author-book').value;
+    const category = document.getElementById('categoria').value; 
+    const price = document.getElementById('price-book').value;
+    const releaseDate = document.getElementById('date-book').value;
 
-    console.log(json)
+    const book = {
+        id: Date.now(), 
+        title,
+        author,
+        category,
+        price,
+        releaseDate
+    };
+
+    const books = JSON.parse(localStorage.getItem('books')) || [];
+    
+    books.push(book);
+
+    localStorage.setItem('books', JSON.stringify(books));
+
+    document.getElementById('title-book').value = '';
+    document.getElementById('author-book').value = '';
+    document.getElementById('categoria').value = '';
+    document.getElementById('price-book').value = '';
+    document.getElementById('date-book').value = '';
+
+    document.getElementById('div-create-book').classList.add('hidden');
+
+    displayBooks();
 }
 
-window.onload = function() {
+document.querySelector('form').addEventListener('submit', saveBook);
 
-    GetLivro()
-    let tbody = document.querySelector('#table-book tbody')
+function displayBooks() {
+    const books = JSON.parse(localStorage.getItem('books')) || [];
 
-    for(let i = 0; i < 9; i++){
-        var tr = document.createElement('tr');
-        tr.setAttribute('class', ' border-b bg-gray-800 border-gray-700')
+    const tableBody = document.querySelector('#table-book tbody');
+    tableBody.innerHTML = '';
 
-        var th = document.createElement('th');
-        th.setAttribute('class', 'px-6 py-4 font-medium text-gray-900 whitespace-nowrap text-white')
-        th.setAttribute('scope', 'row');
-        th.textContent = '1'; // Conteúdo da célula
-        tr.appendChild(th);
-    
-        var td1 = document.createElement('td');
-        td1.textContent = 'Harry Potter';
-        tr.appendChild(td1);
-    
-        var td2 = document.createElement('td');
-        td2.textContent = 'Luana';
-        tr.appendChild(td2);
-    
-        var td3 = document.createElement('td');
-        td3.textContent = 'Magia';
-        tr.appendChild(td3);
-    
-        var td4 = document.createElement('td');
-        td4.textContent = 'R$ 150,00';
-        tr.appendChild(td4);
-    
-        var td5 = document.createElement('td');
-        td5.textContent = '21/03/2021';
-        tr.appendChild(td5);
-    
-    
-        var td6 = document.createElement('td');
-        td6.classList.add('td-class-action')
-        var editar = document.createElement('button');
-        var excluir = document.createElement('button');
-    
-        editar.setAttribute('class', 'bg-white text-black px-3 py-2 rounded mx-1')
-        excluir.setAttribute('class', 'bg-white text-black px-3 py-2 rounded mx-1')
-        editar.textContent = "editar"
-        excluir.textContent = "excluir"
-    
-        td6.appendChild(editar)
-        td6.appendChild(excluir)
-        tr.append(td6)
-    
-        tbody.appendChild(tr);
-    }
+    books.forEach(book => {
+        const row = document.createElement('tr');
+        row.classList.add('rounded');
 
-  
-  };
+        row.innerHTML = `
+            <td class="px-6 py-3">${book.id}</td>
+            <td class="px-6 py-3">${book.title}</td>
+            <td class="px-6 py-3">${book.author}</td>
+            <td class="px-6 py-3">${book.category}</td>
+            <td class="px-6 py-3">${book.price}</td>
+            <td class="px-6 py-3">${book.releaseDate}</td>
+            <td class="px-6 py-3">
+                <button class="text-red-600 hover:text-red-800" onclick="deleteBook(${book.id})">Excluir</button>
+            </td>
+        `;
 
+        tableBody.appendChild(row);
+    });
+}
+
+function deleteBook(bookId) {
+    const books = JSON.parse(localStorage.getItem('books')) || [];
+
+    const updatedBooks = books.filter(book => book.id !== bookId);
+
+    localStorage.setItem('books', JSON.stringify(updatedBooks));
+
+    displayBooks();
+}
+
+document.addEventListener('DOMContentLoaded', displayBooks);

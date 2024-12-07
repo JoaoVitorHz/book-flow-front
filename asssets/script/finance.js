@@ -1,60 +1,83 @@
-let btnCloseCreateBook = document.querySelector('#btn-close-create-book')
-let btnOpenCreateBook = document.querySelector('#btn-open-modal-create-book')
+function loadFinanceData() {
+    const financeData = JSON.parse(localStorage.getItem('financeData')) || [];
+    const tableBody = document.getElementById('table-finance').querySelector('tbody');
+    tableBody.innerHTML = ''; 
 
-btnCloseCreateBook.addEventListener('click', () => {
-    document.querySelector('#div-create-book').setAttribute('style','display: none')
-})
-btnOpenCreateBook.addEventListener('click', () => {
-    document.querySelector('#div-create-book').setAttribute('style','display: flex')
-})
+    financeData.forEach((entry, index) => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td class="px-6 py-3">${index + 1}</td>
+            <td class="px-6 py-3">${entry.product}</td>
+            <td class="px-6 py-3">${entry.paymentMethod}</td>
+            <td class="px-6 py-3">${entry.status}</td>
+            <td class="px-6 py-3">${entry.value}</td>
+            <td class="px-6 py-3">
+                <button onclick="editFinanceEntry(${index})" class="text-blue-500">Editar</button>
+                <button onclick="deleteFinanceEntry(${index})" class="text-red-500">Excluir</button>
+            </td>
+        `;
+        tableBody.appendChild(row);
+    });
+}
+
+function addFinanceEntry(event) {
+    event.preventDefault(); 
+    const product = document.getElementById('product').value;
+    const paymentMethod = document.getElementById('payment-method').value;
+    const value = document.getElementById('value').value;
+    const status = document.getElementById('status').value;
 
 
-window.onload = function() {
-    let tbody = document.querySelector('#table-finance tbody')
+    const newEntry = {
+        product,
+        paymentMethod,
+        value,
+        status
+    };
 
-    for(let i = 0; i < 9; i++){
-        var tr = document.createElement('tr');
-        tr.setAttribute('class', ' border-b bg-gray-800 border-gray-700')
+    console.log(newEntry)
 
-        var th = document.createElement('th');
-        th.setAttribute('class', 'px-6 py-4 font-medium text-gray-400 whitespace-nowrap text-white')
-        th.setAttribute('scope', 'row');
-        th.textContent = '1'; // Conteúdo da célula
-        tr.appendChild(th);
-    
-        var td1 = document.createElement('td');
-        td1.textContent = 'Internet';
-        tr.appendChild(td1);
-    
-        var td2 = document.createElement('td');
-        td2.textContent = 'PIX';
-        tr.appendChild(td2);
-    
-        var td3 = document.createElement('td');
-        td3.textContent = 'Pagamento';
-        tr.appendChild(td3);
-    
-        var td4 = document.createElement('td');
-        td4.textContent = 'R$ 150,00';
-        tr.appendChild(td4);
-    
-    
-        var td6 = document.createElement('td');
-        td6.classList.add('td-class-action')
-        var editar = document.createElement('button');
-        var excluir = document.createElement('button');
-    
-        editar.setAttribute('class', 'bg-white text-black px-3 py-2 rounded mx-1')
-        excluir.setAttribute('class', 'bg-white text-black px-3 py-2 rounded mx-1')
-        editar.textContent = "editar"
-        excluir.textContent = "excluir"
-    
-        td6.appendChild(editar)
-        td6.appendChild(excluir)
-        tr.append(td6)
-    
-        tbody.appendChild(tr);
-    }
 
-  
-  };
+    const financeData = JSON.parse(localStorage.getItem('financeData')) || [];
+    financeData.push(newEntry);
+
+    localStorage.setItem('financeData', JSON.stringify(financeData));
+    loadFinanceData();
+}
+
+function editFinanceEntry(index) {
+    const financeData = JSON.parse(localStorage.getItem('financeData')) || [];
+    const entry = financeData[index];
+
+    document.getElementById('product').value = entry.product;
+    document.getElementById('payment-method').value = entry.paymentMethod;
+    document.getElementById('value').value = entry.value;
+    document.getElementById('status').value = entry.status;
+
+    financeData.splice(index, 1);
+    localStorage.setItem('financeData', JSON.stringify(financeData));
+
+    document.getElementById('div-create-book').classList.remove('hidden');
+}
+
+function deleteFinanceEntry(index) {
+    const financeData = JSON.parse(localStorage.getItem('financeData')) || [];
+    financeData.splice(index, 1);
+    localStorage.setItem('financeData', JSON.stringify(financeData));
+    loadFinanceData(); 
+}
+
+document.getElementById('btn-close-create-book').addEventListener('click', function () {
+    document.getElementById('div-create-book').classList.add('hidden');
+});
+
+document.getElementById('btn-open-modal-create-book').addEventListener('click', function () {
+    document.getElementById('div-create-book').classList.remove('hidden');
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    loadFinanceData(); 
+
+    const form = document.querySelector('form');
+    form.addEventListener('submit', addFinanceEntry);
+});
